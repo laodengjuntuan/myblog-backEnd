@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="foreground/css/home.css">
+    <title>Home</title>
+</head>
+    <body>
+        <%- include('header.ejs') %>
+        <ul class="articles">
+            <% result.forEach((item) => { %>
+                <li class="articles-item">
+                    <span class="item-date"><%= item.time %></span>
+                    <a href="/article?id=<%= item.id %>" class="item-a"><%= item.title %></a>
+                </li>
+            <% }) %>
+        </ul>
+    </body>
+</html>
