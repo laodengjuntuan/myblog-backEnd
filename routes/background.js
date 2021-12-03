@@ -11,6 +11,16 @@ connection.connect()
 
 router.get('/', express.static('public/background'));
 
+router.route('/user')
+      .get(function(req, res, next) {
+        res.send(req.session.username)
+      })
+router.route('/logout')
+      .get(function(req, res, next) {
+        req.session.destroy(() => {
+          res.send('logout')
+        })
+      })
 router.route('/articleList')
       .get(function(req, res, next) {
         connection.query(`SELECT id, title, category, time FROM articles LIMIT ${req.query.len}`, function(err, result, field) {
@@ -29,6 +39,7 @@ router.route('/article')
       })
       .post(function(req, res, next) {
         connection.query(`INSERT INTO articles (title, content, category, time) VALUES ("${req.body.title}", "${req.body.content}", "${req.body.category}", NOW())`)
+        res.send('success')
       })
 
 router.route('/category')
@@ -39,6 +50,7 @@ router.route('/category')
       })
       .post(function(req, res, next) {
         connection.query(`INSERT INTO category (name) VALUES("${req.body.name}")`)
+        res.send('success')
       })
       .delete(function(req, res, next) {
         connection.query(`DELETE FROM category WHERE id = ${req.query.del}`)

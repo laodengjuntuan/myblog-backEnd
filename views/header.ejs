@@ -1,7 +1,13 @@
 <div class="header">
     <a href="/" class="home">xiaowu.live</a>
     <div class="header-options">
-        <a href="/" class="header-options-nobtn">Source</a>
-        <a href="/" class="header-options-btn">Follow Me</a>
+        <a href="./background" class="header-options-nobtn">进入后台</a>
+        <a href="/" class="header-options-btn">
+            <% if (name) { %>
+                <%= name %>
+            <% } else { %>
+                <%= '请登录' %>
+            <% } %>
+            </a>
     </div>
 </div>

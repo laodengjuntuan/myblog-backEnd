@@ -75,3 +75,9 @@
 .item-a:hover {
     background-color: #eee;
 }
+
+.helloworld {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

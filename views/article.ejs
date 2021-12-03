@@ -8,7 +8,7 @@
     <title>Article</title>
 </head>
     <body>
-        <%- include('header.ejs') %>
+        <%- include('header.ejs', {name: name}) %>
         <div class="title-box">
             <h1 class="title"><%= article.title %></h1>
             <div class="author">
