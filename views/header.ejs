@@ -1,13 +1,16 @@
 <div class="header">
     <a href="/" class="home">xiaowu.live</a>
     <div class="header-options">
-        <a href="./background" class="header-options-nobtn">进入后台</a>
-        <a href="/" class="header-options-btn">
-            <% if (name) { %>
+        <% if (name) { %>
+            <a href="./background" class="header-options-nobtn">进入后台</a>
+            <a class="header-options-btn">
                 <%= name %>
-            <% } else { %>
-                <%= '请登录' %>
-            <% } %>
             </a>
+        <% } else { %>
+            <a href="./login" class="header-options-nobtn">进入后台</a>
+            <a href="/login" class="header-options-btn">
+                <%= '请登录' %>
+            </a>
+        <% } %>
     </div>
 </div>
